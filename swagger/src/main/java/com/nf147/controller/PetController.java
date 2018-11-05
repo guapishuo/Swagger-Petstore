@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/pet")
 public class PetController {
 
     @Autowired
@@ -25,19 +25,19 @@ public class PetController {
         List<Pet> pets = petMapper.selectAll();
         model.addAttribute("pets", pets);
         model.addAttribute("pageInfo", new PageInfo<>(pets));
-        return "Pet";
+        return "/pet";
     }
 
     @RequestMapping(method = RequestMethod.POST)
     public String add(Pet pet){
         petMapper.insert(pet);
-        return "redirect:/";
+        return "redirect:/pet";
     }
 
     @RequestMapping(value = "/del/{id}",method = RequestMethod.GET)
         public String delete(@PathVariable("id") int id){
             petMapper.deleteByPrimaryKey(id);
-            return "redirect:/";
+            return "redirect:/pet";
     }
 
     @RequestMapping(value = "/selectByPrimaryKey" ,method = RequestMethod.GET)
@@ -46,8 +46,12 @@ public class PetController {
         model.addAttribute("pet", pet);
         List<Pet> pets = petMapper.selectAll();
         model.addAttribute("pets", pets);
-        return "petUpdate";
+        return "petList";
     }
 
+    @RequestMapping(value = "/pet/update" ,method = RequestMethod.POST)
+    public String update(Pet pet){
 
+        return "petList";
+    }
 }

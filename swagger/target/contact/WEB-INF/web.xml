@@ -4,8 +4,7 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-    <display-name>通讯录</display-name>
-
+    <display-name>宠物信息</display-name>
 
     <!--解决中文乱码-->
     <filter>

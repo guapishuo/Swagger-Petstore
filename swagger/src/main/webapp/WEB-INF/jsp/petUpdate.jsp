@@ -1,11 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: 瓜皮
-  Date: 2018/11/4
-  Time: 20:44
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,13 +6,18 @@
 </head>
 <body>
 
-        <h1>${pet.petName}</h1>
-        <ul>
-            <li>编号：${pet.petId}</li>
-            <li>状态：${pet.petStatus}</li>
-            <li>价格：${pet.petPrice}</li>
-        </ul>
-
+<form action="/pet/update" method="post" >
+    <input type="text" name="petId" value="${pet.petId}" readonly>
+    <input type="text" name="petName" value="${pet.petName}">
+    <input type="number" name="petPrice" value="${pet.petPrice}">
+    <select name="petStatus" >
+        <option value="">状态</option>
+        <option>可用</option>
+        <option>已售出</option>
+        <option>待定</option>
+    </select>
+    <input type="submit" value="修改">
+</form>
 
 </body>
 </html>
