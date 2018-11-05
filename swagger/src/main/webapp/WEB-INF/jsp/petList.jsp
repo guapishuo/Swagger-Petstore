@@ -4,9 +4,11 @@
 <html>
 <head>
     <title>Title</title>
+
 </head>
+
 <body>
-    <h1>${pet.petName}</h1>
+    <h2>${pet.petName}</h2>
     <ul>
         <li>编号：${pet.petId}</li>
         <li>状态：${pet.petStatus}</li>
@@ -16,9 +18,10 @@
             照片：<img height="200" width="200" src="../img/${pet.petJpg}"/>
         </c:if>
         <c:if test="${pet.petJpg == null}">
-        <p>照片未上传</p>
+        <h1 style="color: red">照片未上传</h1>
         </c:if>
     </ul>
     <a href="/pet">返回宠物首页</a>
+
 </body>
 </html>

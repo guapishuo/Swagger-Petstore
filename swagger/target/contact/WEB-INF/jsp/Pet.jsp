@@ -4,6 +4,18 @@
 <head>
     <title>宠物</title>
 </head>
+<script>
+    $('#file').change(function(){
+        $('#em').text($('#file').val());
+    });
+    var file = $('#file'),
+        aim = $('#em');
+    file.on('change', function( e ){
+        //e.currentTarget.files 是一个数组，如果支持多个文件，则需要遍历
+        var name = e.currentTarget.files[0].name;
+        aim.text( name );
+    });
+</script>
 <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -17,6 +29,9 @@
 <form action="/pet" method="post" >
     <div class="col-xs-2">
          <input class="form-control" type="number" name="petId" placeholder="编号">
+    </div>
+    <div class="col-xs-2">
+        <input class="form-control" type="file" id="file" name="petJpg" >
     </div>
     <div class="col-xs-2">
         <input class="form-control" type="text" name="petName" placeholder="宠物名称">
@@ -39,7 +54,7 @@
     <div class="col-xs-2">
         <input class="form-control"  type="number" name="petId" placeholder="请输入编号">
     </div>
-    <input  class="btn btn-success" type="submit">
+    <input  class="btn btn-success" type="submit" value="查询">
 </form>
 
 <table class="table table-striped">
@@ -47,6 +62,7 @@
     <tr>
         <th>编号</th>
         <th>宠物名称</th>
+        <th>宠物照片</th>
         <th>价格</th>
         <th>状态</th>
         <th>操作</th>
@@ -57,6 +73,12 @@
     <tr>
         <td>${pet.petId}</td>
         <td><a href="/pet/selectByPrimaryKey?petId=${pet.petId}">${pet.petName}</a></td>
+        <c:if test="${pet.petJpg !=null}">
+            <td><img height="50" width="70" src= "../img/${pet.petJpg}"></td>
+        </c:if>
+        <c:if test="${pet.petJpg ==null}">
+            <td><p style="color: red">图片未上传</p></td>
+        </c:if>
         <td>${pet.petPrice}</td>
         <td>${pet.petStatus}</td>
         <td><a class="btn btn-danger" href="/pet/del/${pet.petId}">删除</a></td>

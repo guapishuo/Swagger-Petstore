@@ -1469,7 +1469,7 @@
     </column>
     <column id="369" parent="345" name="pet_jpg">
       <Position>2</Position>
-      <DataType>varchar(20)|0s</DataType>
+      <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="370" parent="345" name="category_id">
