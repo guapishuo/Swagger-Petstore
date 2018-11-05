@@ -1,4 +1,4 @@
-package com.nf147.swagger;
+package com.nf147.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/store")
-public class StoreList {
+public class StoreController {
 
 //    @Autowired
 //    protected OrderMapper ordersMapper;

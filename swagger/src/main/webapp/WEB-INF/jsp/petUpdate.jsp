@@ -12,14 +12,14 @@
     <title>Title</title>
 </head>
 <body>
-    <c:forEach items="pets" var="pet">
+
         <h1>${pet.petName}</h1>
         <ul>
-            <li>${pet.petId}</li>
-            <li>${pet.petName}</li>
-            <li>${pet.petPrice}</li>
+            <li>编号：${pet.petId}</li>
+            <li>状态：${pet.petStatus}</li>
+            <li>价格：${pet.petPrice}</li>
         </ul>
-    </c:forEach>
+
 
 </body>
 </html>

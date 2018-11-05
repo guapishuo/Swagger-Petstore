@@ -1,4 +1,4 @@
-package com.nf147.swagger;
+package com.nf147.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.nf147.dao.PetMapper;
@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/")
-public class PetList {
+public class PetController {
 
     @Autowired
     private PetMapper petMapper;
@@ -48,8 +48,6 @@ public class PetList {
         model.addAttribute("pets", pets);
         return "petUpdate";
     }
-    @RequestMapping(value = "/selectPetId/{id}" ,method = RequestMethod.GET)
-    public String selectPetId(int id){
-        return null;
-    }
+
+
 }
