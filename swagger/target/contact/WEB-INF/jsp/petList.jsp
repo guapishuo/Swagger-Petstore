@@ -17,7 +17,7 @@
         <c:if test="${pet.petJpg !=null}">
             照片：<img height="200" width="200" src="../img/${pet.petJpg}"/>
         </c:if>
-        <c:if test="${pet.petJpg == null}">
+        <c:if test="${pet.petJpg == null || pet.petJpg == ''}">
         <h1 style="color: red">照片未上传</h1>
         </c:if>
     </ul>

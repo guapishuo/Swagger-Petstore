@@ -31,7 +31,7 @@
          <input class="form-control" type="number" name="petId" placeholder="编号">
     </div>
     <div class="col-xs-2">
-        <input class="form-control" type="file" id="file" name="petJpg" >
+        <input class="form-control" type="file" id="file" name="petJpg" placeholder="选择图片" >
     </div>
     <div class="col-xs-2">
         <input class="form-control" type="text" name="petName" placeholder="宠物名称">
@@ -73,12 +73,14 @@
     <tr>
         <td>${pet.petId}</td>
         <td><a href="/pet/selectByPrimaryKey?petId=${pet.petId}">${pet.petName}</a></td>
-        <c:if test="${pet.petJpg !=null}">
-            <td><img height="50" width="70" src= "../img/${pet.petJpg}"></td>
+        <td>
+        <c:if test="${pet.petJpg != null || pet.petJpg != '' }">
+            <img height="50" width="70" src= "../img/${pet.petJpg}">
         </c:if>
-        <c:if test="${pet.petJpg ==null}">
-            <td><p style="color: red">图片未上传</p></td>
+        <c:if test="${pet.petJpg == null || pet.petJpg == '' }">
+            <p style="color: red">图片未上传</p>
         </c:if>
+        </td>
         <td>${pet.petPrice}</td>
         <td>${pet.petStatus}</td>
         <td><a class="btn btn-danger" href="/pet/del/${pet.petId}">删除</a></td>
